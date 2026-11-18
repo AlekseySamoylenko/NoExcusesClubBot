@@ -110,14 +110,12 @@ async def my_titles_handler(message: Message):
 
     await message.answer("\n".join(lines))
 
-# @dp.message(F.text == "/getid")
-# async def show_chat_id(message: Message):
-#     print(f"CHAT ID: {message.chat.id}")
-#     print(f"CHAT TITLE: {message.chat.title}")
-
-#     await message.answer(
-#         f"ID этой группы: {message.chat.id}"
-#     )
+@dp.message(Command("getid"))
+async def show_chat_id(message: Message):
+    await message.answer(
+        f"ID этой группы: {message.chat.id}\n"
+        f"CHAT_ID в настройках: {CHAT_ID}"
+    )
 
 @dp.message(
     F.chat.id == CHAT_ID,
