@@ -37,4 +37,9 @@ MONTH_RESULT_TIME = os.getenv(
 )
 
 # Путь к базе данных
-DATABASE_PATH = BASE_DIR / "data" / "bot.db"
+DATABASE_PATH = Path(
+    os.getenv(
+        "DATABASE_PATH",
+        str(BASE_DIR / "data" / "bot.db")
+    )
+)
